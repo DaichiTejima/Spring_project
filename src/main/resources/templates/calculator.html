@@ -1,0 +1,23 @@
+ <!DOCTYPE html>
+ <html xmlns="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>計算機</title>
+</head>
+<body>
+	<h1>計算機</h1>
+	<form action="calculator" method="get">
+		<input type="text" id="num1" name="num1" required>
+		<select name="operation" required>
+			<option value="add">+</option>
+			<option value="minus">-</option>
+			<option value="multiply">×</option>
+			<option value="division">÷</option>
+		</select>
+		<input type="text" id="num2" name="num2" required>
+		<button type="submit">=</button>
+	</form>
+	<span th:text="${result}"></span>
+</body>
+	 
+ </html>
