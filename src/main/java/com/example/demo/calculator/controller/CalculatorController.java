@@ -27,25 +27,14 @@ public class CalculatorController {
 			try {
 	        	int num1 = Integer.parseInt(num1Str);
 	        	int num2 = Integer.parseInt(num2Str);
+	        	result = String.valueOf(calculatorService.calculator(operation, num1,num2));
 	        	
-				switch(operation) {
-				case "add":
-					result = String.valueOf(calculatorService.add(num1, num2));
-					break;
-				case "minus":
-					result = String.valueOf(calculatorService.minus(num1, num2));
-					break;
-				case "multiply":
-					result = String.valueOf(calculatorService.multiply(num1, num2));
-					break;
-				case "division":
-					result = String.valueOf(calculatorService.division(num1, num2));
-					break;
-				}
 			} catch (NumberFormatException e) {
 	            model.addAttribute("result", " ");
 			} catch (ArithmeticException e) {
-				result = "ゼロは除算できません";
+				result = e.getMessage();
+			} catch (IllegalArgumentException e) {
+				result = e.getMessage();
 			}
         }
 

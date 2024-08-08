@@ -21,4 +21,23 @@ public class CalculatorService {
 		return num1 / num2;
 	}
 
+
+	public int calculator(String operation, int num1, int num2) {
+		switch(operation) {
+		case "add":
+			return add(num1, num2);
+			
+		case "minus":
+			return minus(num1, num2);
+			
+		case "multiply":
+			return multiply(num1, num2);
+		
+		case "division":
+			return division(num1, num2);
+		
+		default:
+			throw new IllegalArgumentException(" ");
+		}
+	}
 }
